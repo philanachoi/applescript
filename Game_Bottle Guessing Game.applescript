@@ -1,8 +1,5 @@
 --製作答案
-set theList to {}
-repeat with i from 1 to 5
-	set the end of theList to i
-end repeat
+set theList to countOn(5)
 set userInput to theList as string
 set title to "估次序" & return & "遊戲玩法：" & userInput & "會隨機排列，請將數字放入正確位置"
 set theList to randomNum(theList) as string
@@ -35,4 +32,9 @@ on randomNum(theList)
 	end repeat
 	return theList
 end randomNum
+--************************************************************************
+on countOn(num)
+	if num = 1 then return 1
+	return countOn(num - 1) & {num}
+end countOn
 --************************************************************************
